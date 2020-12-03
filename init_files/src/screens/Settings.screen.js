@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {StyleSheet, View, Button, Text} from 'react-native';
 import {useDispatch} from 'react-redux';
 import RNRestart from 'react-native-restart';
+import SplashScreen from 'react-native-splash-screen';
 /* Local Files */
 import {changeLanguage} from '../redux/ducks/language.js';
 import {LocalizationContext} from '../redux/store.js';
@@ -14,9 +15,11 @@ const SettingsScreen = () => {
   const onChangeLang = (selectedLang) => {
     dispatch(changeLanguage(selectedLang));
     setLocale(selectedLang);
+
     setTimeout(() => {
       if (selectedLang === 'ar' || locale === 'ar') {
         if (selectedLang !== locale) {
+          SplashScreen.show();
           RNRestart.Restart();
         }
       }

@@ -1,19 +1,18 @@
 /* Modules */
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Ionicon from 'react-native-vector-icons/Ionicons';
 /* Local Files */
 import HomeStack from '../stacks/Home.stack.js';
 import SettingsStack from '../stacks/Settings.stack.js';
 import {HOME_TAB, SETTINGS_TAB} from '../../constants/navigation.js';
 import {LocalizationContext} from '../../redux/store.js';
-import colors from '../../theme/colors.js';
+import {FONT_AWESOME, IONICONS} from '../../constants/icons.js';
+import {TabBarIcon} from '../../components/index.js';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
-  const {t} = React.useContext(LocalizationContext);
+  const {t} = useContext(LocalizationContext);
 
   return (
     <Tab.Navigator>
@@ -22,9 +21,7 @@ const BottomTabs = () => {
         component={HomeStack}
         options={{
           title: t('home'),
-          tabBarIcon: () => (
-            <Icon name="home" size={30} color={colors.primary} />
-          ),
+          tabBarIcon: () => <TabBarIcon library={FONT_AWESOME} icon="home" />,
         }}
       />
       <Tab.Screen
@@ -33,7 +30,7 @@ const BottomTabs = () => {
         options={{
           title: t('settings'),
           tabBarIcon: () => (
-            <Ionicon name="settings-sharp" size={30} color={colors.primary} />
+            <TabBarIcon library={IONICONS} icon="settings-sharp" />
           ),
         }}
       />

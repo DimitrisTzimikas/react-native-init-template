@@ -1,5 +1,5 @@
 /* Modules */
-import * as React from 'react';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 /* Local Files */
 import HomeScreen from '../../screens/Home.screen.js';
