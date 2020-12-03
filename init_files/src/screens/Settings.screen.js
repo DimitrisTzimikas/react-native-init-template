@@ -51,6 +51,6 @@ const s = StyleSheet.create({
   },
 });
 
-// SettingsScreen.whyDidYouRender = true;
+SettingsScreen.whyDidYouRender = true;
 
 export default SettingsScreen;

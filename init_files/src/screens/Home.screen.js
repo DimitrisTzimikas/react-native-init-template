@@ -77,6 +77,6 @@ const s = StyleSheet.create({
   },
 });
 
-// HomeScreen.whyDidYouRender = true;
+HomeScreen.whyDidYouRender = true;
 
 export default HomeScreen;
